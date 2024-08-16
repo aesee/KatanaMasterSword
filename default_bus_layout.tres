@@ -1,0 +1,63 @@
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://bl47b6xelvj36"]
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_1mveq"]
+resource_name = "LowPassFilter"
+cutoff_hz = 1400.0
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_l5xgm"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_kgxi2"]
+resource_name = "Reverb"
+predelay_msec = 20.0
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_cechv"]
+resource_name = "LowPassFilter"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_ktovp"]
+resource_name = "Reverb"
+dry = 0.25
+wet = 0.25
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_chofe"]
+resource_name = "Reverb"
+dry = 0.5
+
+[resource]
+bus/0/volume_db = 0.0672607
+bus/1/name = &"NightClubMusic"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0672607
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectLowPassFilter_1mveq")
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectReverb_l5xgm")
+bus/1/effect/1/enabled = true
+bus/2/name = &"RegularSounds"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 3.04474
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectReverb_kgxi2")
+bus/2/effect/0/enabled = true
+bus/3/name = &"MainMenu"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 1.85375
+bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectLowPassFilter_cechv")
+bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource("AudioEffectReverb_ktovp")
+bus/3/effect/1/enabled = true
+bus/4/name = &"BossMusic"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 2.05151
+bus/4/send = &"Master"
+bus/4/effect/0/effect = SubResource("AudioEffectReverb_chofe")
+bus/4/effect/0/enabled = true

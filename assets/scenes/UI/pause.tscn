@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://b610bnyfm4c6p"]
+
+[ext_resource type="Script" path="res://scripts/UI/pause.gd" id="1_mcmm7"]
+[ext_resource type="PackedScene" uid="uid://bcp73mvvyklsa" path="res://assets/scenes/UI/main_menu.tscn" id="2_42wgy"]
+[ext_resource type="Theme" uid="uid://bmmgb58vvch3j" path="res://assets/ui_themes/default.tres" id="3_p1wry"]
+[ext_resource type="Shader" path="res://shaders/chromatic_distortion.gdshader" id="4_ivyxj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsggj"]
+shader = ExtResource("4_ivyxj")
+shader_parameter/chaos = 3.0
+shader_parameter/radius = 1.0
+shader_parameter/attenuation = 2.0
+
+[node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("quit_button")]
+process_mode = 2
+script = ExtResource("1_mcmm7")
+main_menu = ExtResource("2_42wgy")
+quit_button = NodePath("Control/Panel/VBoxContainer/Button7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.0
+offset_top = -252.0
+offset_right = 286.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button4" type="Button" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("3_p1wry")
+text = "BACK"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Button5" type="Button" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("3_p1wry")
+text = "RESTART"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("3_p1wry")
+text = "BACK TO MAIN MENU"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("3_p1wry")
+text = "QUIT"
+
+[node name="ShaderEffect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wsggj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="button_down" from="Control/Panel/VBoxContainer/Button4" to="." method="_on_back_button_down"]
+[connection signal="button_down" from="Control/Panel/VBoxContainer/Button5" to="." method="_on_restart_button_down"]
+[connection signal="button_down" from="Control/Panel/VBoxContainer/Button6" to="." method="_on_back_to_menu_button_down"]
+[connection signal="button_down" from="Control/Panel/VBoxContainer/Button7" to="." method="_on_quit_button_down"]

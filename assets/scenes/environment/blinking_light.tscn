@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://biihwna8r8fwi"]
+
+[ext_resource type="Script" path="res://scripts/environment/blinking_light.gd" id="1_kbxfx"]
+
+[node name="Blinking light" type="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.77107, 9.41781)
+light_color = Color(0.792157, 0, 0.121569, 1)
+light_energy = 14.0
+light_bake_mode = 0
+shadow_enabled = true
+shadow_blur = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 10.0
+script = ExtResource("1_kbxfx")

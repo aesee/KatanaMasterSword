@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://d00f3g4twxvyq"]
+
+[ext_resource type="Shader" path="res://shaders/opponent_default.gdshader" id="1_tf3em"]
+[ext_resource type="Texture2D" uid="uid://chiqavf0yq4e7" path="res://assets/textures/noise_texture_2d.tres" id="2_4sse5"]
+[ext_resource type="Texture2D" uid="uid://btkmsguodva14" path="res://assets/characters/demon_head_03/demon_head_03_tex_base_color.jpg" id="3_2ycs8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tf3em")
+shader_parameter/albedo = Color(0.713726, 0.713726, 0.713726, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/emission_amount = null
+shader_parameter/burn_size = null
+shader_parameter/dissolve_amount = 0.0
+shader_parameter/texture_albedo = ExtResource("3_2ycs8")
+shader_parameter/dissolve_texture = ExtResource("2_4sse5")

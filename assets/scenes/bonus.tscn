@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcced0x68bibq"]
+
+[ext_resource type="Script" path="res://scripts/bonus.gd" id="1_2gv44"]
+[ext_resource type="Shader" path="res://shaders/opponent_default.gdshader" id="1_j1dp3"]
+[ext_resource type="Texture2D" uid="uid://chiqavf0yq4e7" path="res://assets/textures/noise_texture_2d.tres" id="2_iohd0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4x16o"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_j1dp3")
+shader_parameter/albedo = Color(0.0235294, 0.258824, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/emission_amount = null
+shader_parameter/burn_size = null
+shader_parameter/dissolve_amount = 0.0
+shader_parameter/dissolve_texture = ExtResource("2_iohd0")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_usx60"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_4x16o")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8hhqh"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_j1dp3")
+shader_parameter/albedo = null
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/emission_amount = null
+shader_parameter/burn_size = null
+shader_parameter/dissolve_amount = 0.0
+shader_parameter/dissolve_texture = ExtResource("2_iohd0")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ffkoc"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_8hhqh")
+size = Vector3(0.665, 0.23, 0.23)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yh0yr"]
+
+[node name="Bonus" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.859153, -18.4055)
+script = ExtResource("1_2gv44")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_usx60")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.496623, 0.380703)
+mesh = SubResource("BoxMesh_ffkoc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_yh0yr")

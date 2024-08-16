@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bd5b5ek7x2h74"
+path="res://.godot/imported/Geass - BossRythm - Main.mp3-e62814d302c9fe3485946f632f4ff4e0.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Geass - BossRythm - Main.mp3"
+dest_files=["res://.godot/imported/Geass - BossRythm - Main.mp3-e62814d302c9fe3485946f632f4ff4e0.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

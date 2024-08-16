@@ -1,0 +1,941 @@
+[gd_scene load_steps=94 format=3 uid="uid://bqrf045bifx32"]
+
+[ext_resource type="Script" path="res://scripts/game_logic.gd" id="1_8yer2"]
+[ext_resource type="PackedScene" uid="uid://cjf37k1ikuwa2" path="res://assets/scenes/fighting_scene.tscn" id="2_0i3m7"]
+[ext_resource type="PackedScene" uid="uid://bbehow0n6x7qo" path="res://assets/scenes/opponents/opponent_final_boss.tscn" id="3_hgfng"]
+[ext_resource type="PackedScene" uid="uid://b8oh4ucjvoarp" path="res://assets/scenes/opponents/opponent_01.tscn" id="3_toueh"]
+[ext_resource type="PackedScene" uid="uid://dgu60km6rmdau" path="res://assets/scenes/opponents/opponent_04.tscn" id="3_ycy5c"]
+[ext_resource type="PackedScene" uid="uid://cpgkcwg84e3ir" path="res://assets/scenes/opponents/opponent_02.tscn" id="4_23i3m"]
+[ext_resource type="Texture2D" uid="uid://dwba3nwm2ssxp" path="res://assets/textures/floor_03.png" id="4_gryk2"]
+[ext_resource type="AudioStream" uid="uid://buvhrcw4jm3tq" path="res://assets/music/Geass - Shotgun Wedding.mp3" id="4_jhetv"]
+[ext_resource type="Script" path="res://scripts/setups/background_music_manager.gd" id="4_nsor6"]
+[ext_resource type="PackedScene" uid="uid://biihwna8r8fwi" path="res://assets/scenes/environment/blinking_light.tscn" id="4_uyoqh"]
+[ext_resource type="PackedScene" uid="uid://wt57dflv753h" path="res://assets/scenes/opponents/opponent_03.tscn" id="5_2fi2s"]
+[ext_resource type="Script" path="res://scripts/setups/blades_audio_manager.gd" id="5_kytg6"]
+[ext_resource type="ArrayMesh" uid="uid://c4kcjl28ovru" path="res://assets/environment/sofa_01.obj" id="6_ce43l"]
+[ext_resource type="Texture2D" uid="uid://bkig2r7frqjma" path="res://assets/textures/floor_02.png" id="8_0tv6b"]
+[ext_resource type="PackedScene" uid="uid://c3wle1rqc35jg" path="res://assets/scenes/environment/disco_light.tscn" id="8_6gv2d"]
+[ext_resource type="AudioStream" uid="uid://b0fweeme0tfad" path="res://assets/sounds/hits/hit_01.mp3" id="8_ku3r1"]
+[ext_resource type="PackedScene" uid="uid://555os30b1gu7" path="res://assets/scenes/environment/doors.tscn" id="8_mogom"]
+[ext_resource type="Script" path="res://scripts/events/dancefloor_entering.gd" id="9_81wuy"]
+[ext_resource type="AudioStream" uid="uid://cow3yh1vxef2v" path="res://assets/sounds/mixkit-papers-blowing-in-the-windstorm-2653.wav" id="9_ggkvh"]
+[ext_resource type="AudioStream" uid="uid://wsxidg6lrm3x" path="res://assets/sounds/concrete-footsteps-6752.mp3" id="9_hu430"]
+[ext_resource type="Texture2D" uid="uid://btlljb3baw68m" path="res://assets/textures/bottles_bar.jpg" id="9_k7omu"]
+[ext_resource type="AudioStream" uid="uid://chpd6uaydsaoo" path="res://assets/sounds/hits/hit_02.mp3" id="9_kx4sr"]
+[ext_resource type="Script" path="res://scripts/setups/footsteps_audio_manager.gd" id="10_ctoj1"]
+[ext_resource type="AudioStream" uid="uid://bi6a7my8u6cdy" path="res://assets/sounds/hits/hit_03.mp3" id="10_w102m"]
+[ext_resource type="AudioStream" uid="uid://jhvdpt5s1wyq" path="res://assets/sounds/hits/hit_04.mp3" id="11_707mh"]
+[ext_resource type="AudioStream" uid="uid://crv5jnu3yvd0h" path="res://assets/sounds/hits/hit_05.mp3" id="12_jn2ym"]
+[ext_resource type="AudioStream" uid="uid://n5skj0lxo3k0" path="res://assets/sounds/hits/hit_06.mp3" id="13_giolr"]
+[ext_resource type="Material" uid="uid://di6jvxmm4nb27" path="res://assets/materials/floor_nightclub_01.tres" id="13_yseni"]
+[ext_resource type="AudioStream" uid="uid://f7cjxou6fdmn" path="res://assets/sounds/hits/hit_07.mp3" id="14_4duwv"]
+[ext_resource type="Material" uid="uid://deyd0qle2y85a" path="res://assets/materials/brick_walls_nightclub.tres" id="14_20nfv"]
+[ext_resource type="Script" path="res://scripts/setups/boss_music.gd" id="14_i7a2n"]
+[ext_resource type="Material" uid="uid://23d3okwut4hp" path="res://assets/materials/brick_walls_nightclub_02.tres" id="14_syk6k"]
+[ext_resource type="AudioStream" uid="uid://dwu6gubfpwkuh" path="res://assets/sounds/hits/hit_08.mp3" id="15_hjyx3"]
+[ext_resource type="AudioStream" uid="uid://bvs8quxiqnp78" path="res://assets/music/Geass - BossRythm - Intro.mp3" id="15_jfeot"]
+[ext_resource type="AudioStream" uid="uid://bd5b5ek7x2h74" path="res://assets/music/Geass - BossRythm - Main.mp3" id="16_ber03"]
+[ext_resource type="AudioStream" uid="uid://j4k7mckepyqe" path="res://assets/sounds/hits/hit_09.mp3" id="16_q5m8f"]
+[ext_resource type="AudioStream" uid="uid://x5o7rah2irbr" path="res://assets/sounds/hits/hit_10.mp3" id="17_vxymg"]
+[ext_resource type="PackedScene" uid="uid://bbplbbud3gd5" path="res://assets/scenes/environment/graffiti/graffiti_02.tscn" id="18_qrre0"]
+[ext_resource type="AudioStream" uid="uid://ba1jt6dx2eawo" path="res://assets/sounds/hits/hit_11.mp3" id="18_uiyi2"]
+[ext_resource type="AudioStream" uid="uid://dsdmvmtqmealw" path="res://assets/sounds/hits/hit_12.mp3" id="19_xpjoe"]
+[ext_resource type="PackedScene" uid="uid://by41846c3hhat" path="res://assets/scenes/environment/graffiti/graffiti_01.tscn" id="20_7wjvu"]
+[ext_resource type="AudioStream" uid="uid://cx1dglhgs5uvc" path="res://assets/sounds/hits/hit_13.mp3" id="20_vji0t"]
+[ext_resource type="AudioStream" uid="uid://dk3gsgktgyi0b" path="res://assets/sounds/hits/hit_20.mp3" id="21_6xb74"]
+[ext_resource type="Texture2D" uid="uid://calrm3yp7wx0s" path="res://assets/textures/arts/ira_01.jpg" id="22_h4j3f"]
+[ext_resource type="AudioStream" uid="uid://cukudy83mnevd" path="res://assets/sounds/hits/hit_21.mp3" id="22_k5rac"]
+[ext_resource type="AudioStream" uid="uid://dned7lex4ffkq" path="res://assets/sounds/hits/hit_22.mp3" id="23_31g77"]
+[ext_resource type="PackedScene" uid="uid://c1pn0aifro43e" path="res://assets/environment/chair_02/chair_02.gltf" id="23_85j0u"]
+[ext_resource type="PackedScene" uid="uid://cvc5un3q2s2g8" path="res://assets/scenes/player_camera.tscn" id="23_hbanu"]
+[ext_resource type="Texture2D" uid="uid://f3btsppxdktb" path="res://assets/textures/arts/ira_03.jpg" id="23_nx48g"]
+[ext_resource type="PackedScene" uid="uid://dm76jbfang53g" path="res://assets/environment/trash_can/trash_can.gltf" id="23_qm34m"]
+[ext_resource type="Texture2D" uid="uid://cyryrwqxy4dvs" path="res://assets/textures/arts/ira_02.jpg" id="23_uuj0m"]
+[ext_resource type="PackedScene" uid="uid://cqeje5570aq4s" path="res://assets/scenes/crt_shader_canvas.tscn" id="24_bs6bb"]
+[ext_resource type="Material" uid="uid://cgfq8xsnup2o6" path="res://assets/environment/trash_can/trash_can.tres" id="24_hsoq4"]
+[ext_resource type="AudioStream" uid="uid://cabsa8b834jfw" path="res://assets/sounds/hits/hit_23.mp3" id="24_ke1fx"]
+[ext_resource type="Texture2D" uid="uid://hjaxn8udfaw" path="res://assets/textures/arts/ira_04.jpg" id="24_mu40p"]
+[ext_resource type="AudioStream" uid="uid://5d4bftfuay2r" path="res://assets/sounds/hits/hit_24.mp3" id="25_8urue"]
+[ext_resource type="PackedScene" uid="uid://it6q4kfyw5et" path="res://assets/scenes/environment/graffiti/graffiti_04.tscn" id="25_ygum5"]
+[ext_resource type="PackedScene" uid="uid://hajf6hvxkga2" path="res://assets/scenes/environment/graffiti/graffiti_05.tscn" id="26_3ddlj"]
+[ext_resource type="AudioStream" uid="uid://bxm83eqocm34w" path="res://assets/sounds/hits/hit_25.mp3" id="26_ox55j"]
+[ext_resource type="PackedScene" uid="uid://bud0d6pksu022" path="res://assets/environment/money_02/scene.gltf" id="28_6iatb"]
+[ext_resource type="Texture2D" uid="uid://dbs6hu27tf8rm" path="res://assets/textures/floor_04.JPG" id="29_7iprp"]
+[ext_resource type="Material" uid="uid://dudxktfb813nh" path="res://assets/materials/bar_table_01.tres" id="30_tq0tk"]
+[ext_resource type="Script" path="res://scripts/setups/screams_manager.gd" id="32_aa5cy"]
+[ext_resource type="AudioStream" uid="uid://drx7n2tk2wthr" path="res://assets/sounds/screams/scream_01.mp3" id="33_prka1"]
+[ext_resource type="AudioStream" uid="uid://s6uygtkg3syl" path="res://assets/sounds/screams/scream_02.mp3" id="34_fskib"]
+[ext_resource type="Script" path="res://scripts/events/boss_music_trigger.gd" id="35_1211m"]
+[ext_resource type="AudioStream" uid="uid://cunukqfedm3xc" path="res://assets/sounds/screams/scream_03.mp3" id="35_v1nmk"]
+[ext_resource type="AudioStream" uid="uid://bpu0ji3tmqsub" path="res://assets/sounds/screams/scream_04.mp3" id="36_44tss"]
+[ext_resource type="AudioStream" uid="uid://d02bk5tfkq8vi" path="res://assets/sounds/screams/scream_05.mp3" id="37_6ej8q"]
+[ext_resource type="AudioStream" uid="uid://bmkf4uv4w7kra" path="res://assets/sounds/screams/scream_06.mp3" id="38_3ywxh"]
+[ext_resource type="PackedScene" uid="uid://dcced0x68bibq" path="res://assets/scenes/bonus.tscn" id="71_6umqy"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_s5x33"]
+
+[sub_resource type="Sky" id="Sky_d8e2o"]
+sky_material = SubResource("PhysicalSkyMaterial_s5x33")
+
+[sub_resource type="Environment" id="Environment_7hnei"]
+background_mode = 2
+sky = SubResource("Sky_d8e2o")
+glow_enabled = true
+fog_light_energy = 0.1
+fog_aerial_perspective = 0.787
+
+[sub_resource type="QuadMesh" id="QuadMesh_wm11u"]
+orientation = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_2kbv3"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4uve2"]
+size = Vector3(7, 0.5, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ywbw"]
+size = Vector3(4.265, 10, 3.715)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qrtn0"]
+size = Vector3(7, 0.5, 0.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cj5c"]
+albedo_texture = ExtResource("4_gryk2")
+uv1_scale = Vector3(0.1, 1, 1)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_peu5n"]
+albedo_texture = ExtResource("29_7iprp")
+uv1_scale = Vector3(0.4, 0.4, 0.4)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ag0id"]
+size = Vector3(8, 10, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1q0eu"]
+size = Vector3(1.605, 5.61, 7.665)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8db33"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypc8y"]
+albedo_texture = ExtResource("8_0tv6b")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_gswwl"]
+size = Vector3(1, 0.625, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g44re"]
+albedo_texture = ExtResource("9_k7omu")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3os4k"]
+top_radius = 1.5
+height = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_df5i2"]
+albedo_texture = ExtResource("8_0tv6b")
+
+[sub_resource type="BoxMesh" id="BoxMesh_7mk4c"]
+size = Vector3(1.5, 40, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gh736"]
+size = Vector3(16, 10, 10)
+
+[sub_resource type="QuadOccluder3D" id="QuadOccluder3D_iaeko"]
+size = Vector2(100, 100)
+
+[sub_resource type="Curve3D" id="Curve3D_e2cu4"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -8.585, 0, 0, 0, 0, 0, -5.61, 0, 0, -39.075, -15.98, 0, 0, 0, 0, 0, 29.785, 0, -41.635, -2.93, -0.527, -1.501, 16.779, 3.672, 12.006, 55, 0, -41.39, -3.193, -0.644, 8.836, 3.668, -0.106, -6.801, 65.97, 0, -47.015, 0, 0, 5.14, 0, -0.38, 0, 51.475, 0, -55.205, -6.63, 0, 0, 4.13, 0, 0, 55.145, 5.5, -70.89, 0.252, -4.123, -6.802, -1.162, -1.102, 10.557, 58.575, 10.5, -58.685, 2.985, -4.93, -23.255, -0.395, 0, 0.775, 56.24, 0, -40.4, 0.34, 0, -3.535, 0, 0, 0, 59.215, 0, -21.045, 0, 0, 0, 0, 0, 0, 58.665, 0, 7.975, 0, 0, 0, -0.155, 0, 1.365, 58.665, 0, 18.345, 0, 2.6, -3.995, 0, 0, 0, 58.84, 1.36, 23.415),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 13
+up_vector_enabled = false
+
+[node name="Game" type="Node3D" node_paths=PackedStringArray("main_camera", "path")]
+script = ExtResource("1_8yer2")
+base_fighting_scene = ExtResource("2_0i3m7")
+fights = Array[PackedScene]([ExtResource("3_toueh"), ExtResource("4_23i3m"), ExtResource("5_2fi2s"), ExtResource("3_toueh"), ExtResource("4_23i3m"), ExtResource("3_ycy5c"), ExtResource("5_2fi2s"), ExtResource("3_toueh"), ExtResource("4_23i3m"), ExtResource("5_2fi2s"), ExtResource("3_hgfng")])
+main_camera = NodePath("Path3D/PathFollow3D/Player")
+path = NodePath("Path3D/PathFollow3D")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer3D" parent="Audio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.6253, 9.24158, -18.9411)
+stream = ExtResource("4_jhetv")
+volume_db = -15.0
+unit_size = 100.0
+max_distance = 1000.0
+bus = &"NightClubMusic"
+emission_angle_degrees = 90.0
+doppler_tracking = 2
+script = ExtResource("4_nsor6")
+
+[node name="BladesSounds" type="AudioStreamPlayer" parent="Audio"]
+process_mode = 3
+max_polyphony = 8
+bus = &"RegularSounds"
+script = ExtResource("5_kytg6")
+sounds = Array[AudioStream]([ExtResource("8_ku3r1"), ExtResource("9_kx4sr"), ExtResource("10_w102m"), ExtResource("11_707mh"), ExtResource("12_jn2ym"), ExtResource("13_giolr"), ExtResource("14_4duwv"), ExtResource("15_hjyx3"), ExtResource("16_q5m8f"), ExtResource("17_vxymg"), ExtResource("18_uiyi2"), ExtResource("19_xpjoe"), ExtResource("20_vji0t")])
+failed_sounds = Array[AudioStream]([ExtResource("21_6xb74"), ExtResource("22_k5rac"), ExtResource("23_31g77"), ExtResource("24_ke1fx"), ExtResource("25_8urue"), ExtResource("26_ox55j")])
+finish_sound = ExtResource("9_ggkvh")
+
+[node name="FootstepsSounds" type="AudioStreamPlayer" parent="Audio"]
+process_mode = 3
+stream = ExtResource("9_hu430")
+bus = &"RegularSounds"
+script = ExtResource("10_ctoj1")
+
+[node name="BossMusic" type="AudioStreamPlayer" parent="Audio"]
+bus = &"BossMusic"
+script = ExtResource("14_i7a2n")
+intro = ExtResource("15_jfeot")
+main_loop = ExtResource("16_ber03")
+
+[node name="ScreamsSounds" type="AudioStreamPlayer" parent="Audio"]
+process_mode = 3
+max_polyphony = 2
+bus = &"RegularSounds"
+script = ExtResource("32_aa5cy")
+sounds = Array[AudioStream]([ExtResource("33_prka1"), ExtResource("34_fskib"), ExtResource("35_v1nmk"), ExtResource("36_44tss"), ExtResource("37_6ej8q"), ExtResource("38_3ywxh")])
+
+[node name="NightclubLevelEnvironment" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="NightclubLevelEnvironment"]
+transform = Transform3D(0.765854, 0.476311, -0.431968, 0, 0.671785, 0.740746, 0.643015, -0.567303, 0.514489, -6.61205, 9.11016, 6.62712)
+visible = false
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="NightclubLevelEnvironment"]
+environment = SubResource("Environment_7hnei")
+
+[node name="Building" type="Node" parent="NightclubLevelEnvironment"]
+
+[node name="Floor01" type="MeshInstance3D" parent="NightclubLevelEnvironment/Building"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 13.39, 0, -7.079)
+material_override = ExtResource("13_yseni")
+mesh = SubResource("QuadMesh_wm11u")
+
+[node name="DanceFloor01" type="MeshInstance3D" parent="NightclubLevelEnvironment/Building"]
+transform = Transform3D(35, 0, 0, 0, 35, 0, 0, 0, 35, 55.89, 0, -18.916)
+material_override = ExtResource("13_yseni")
+mesh = SubResource("QuadMesh_wm11u")
+
+[node name="Area" type="MeshInstance3D" parent="NightclubLevelEnvironment/Building"]
+transform = Transform3D(14, 0, 0, 0, 1, 0, 0, 0, 10, 54.9219, 4.73217, -48.1776)
+material_override = ExtResource("13_yseni")
+mesh = SubResource("BoxMesh_2kbv3")
+
+[node name="Area2" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building"]
+transform = Transform3D(-0.999999, -1.74846e-08, 7.64273e-15, 0, -8.74228e-09, -2, 8.74227e-08, -0.2, 8.74227e-08, 58.4327, 7.8428, -33.2426)
+operation = 2
+calculate_tangents = false
+mesh = SubResource("BoxMesh_4uve2")
+material = ExtResource("14_syk6k")
+
+[node name="Area3" type="MeshInstance3D" parent="NightclubLevelEnvironment/Building"]
+transform = Transform3D(1.83588e-07, -0.00999999, 7.64948e-08, 0, -4.37114e-10, -1.75, 1.4, 1.31134e-09, -1.00311e-14, 54.8825, 7.39219, -38.2052)
+material_override = ExtResource("14_syk6k")
+mesh = SubResource("BoxMesh_4uve2")
+
+[node name="Floor02" type="MeshInstance3D" parent="NightclubLevelEnvironment/Building"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 50.3623, 0, 21.6586)
+material_override = ExtResource("13_yseni")
+mesh = SubResource("QuadMesh_wm11u")
+
+[node name="Lightning" type="Node" parent="NightclubLevelEnvironment/Building"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="NightclubLevelEnvironment/Building/Lightning"]
+transform = Transform3D(1, 0, 0, 0, 0.700149, 0.713996, 0, -0.713996, 0.700149, 0.400533, 5.72556, -10.9264)
+light_color = Color(0.792157, 0, 0.121569, 1)
+light_energy = 14.0
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 13.0
+distance_fade_shadow = 10.0
+spot_range = 40.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="NightclubLevelEnvironment/Building/Lightning"]
+transform = Transform3D(-0.0871558, 0.711754, -0.697001, 0, 0.699663, 0.714473, 0.996195, 0.0622704, -0.0609797, 22.6904, 5.72556, -18.8328)
+light_color = Color(0.952941, 0.866667, 0.329412, 1)
+light_energy = 14.0
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+distance_fade_shadow = 3.0
+spot_range = 13.161
+
+[node name="Disco lights 01" parent="NightclubLevelEnvironment/Building/Lightning" instance=ExtResource("8_6gv2d")]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 53.6851, 6.85558, -17.6244)
+light_color = Color(0.952941, 0, 0.756863, 1)
+light_energy = 14.0
+light_bake_mode = 1
+shadow_bias = 0.08
+distance_fade_begin = 15.0
+distance_fade_shadow = 10.0
+omni_range = 22.0
+omni_shadow_mode = 0
+colors = Array[Color]([Color(1, 0.368627, 0.301961, 1), Color(0.243137, 0.462745, 1, 1), Color(0.933333, 0.768627, 0, 1), Color(0.952941, 0, 0.756863, 1), Color(0.505882, 0.34902, 0.756863, 1)])
+
+[node name="Blinking light" parent="NightclubLevelEnvironment/Building/Lightning" instance=ExtResource("4_uyoqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.4365, 7.03032, -36.8513)
+light_bake_mode = 1
+shadow_enabled = false
+shadow_blur = 0.0
+distance_fade_begin = 4.0
+distance_fade_shadow = 0.0
+distance_fade_length = 4.0
+omni_range = 10.0
+omni_shadow_mode = 0
+script = null
+
+[node name="Blinking light4" parent="NightclubLevelEnvironment/Building/Lightning" instance=ExtResource("4_uyoqh")]
+transform = Transform3D(-0.232682, 0.898058, -0.373296, -0.84864, -1.25972e-07, 0.528972, 0.475047, 0.439876, 0.762128, 51.3591, 7.52798, -47.2102)
+light_bake_mode = 1
+distance_fade_begin = 5.0
+distance_fade_shadow = 2.0
+distance_fade_length = 5.0
+omni_range = 12.0
+omni_shadow_mode = 0
+script = null
+
+[node name="Blinking light5" parent="NightclubLevelEnvironment/Building/Lightning" instance=ExtResource("4_uyoqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.388, 13.3543, -38.5413)
+light_color = Color(0.780392, 0.00392157, 0.956863, 1)
+light_bake_mode = 1
+shadow_bias = 0.8
+shadow_blur = 0.0
+distance_fade_begin = 3.0
+distance_fade_shadow = 2.0
+distance_fade_length = 3.0
+omni_range = 7.0
+omni_shadow_mode = 0
+script = null
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="NightclubLevelEnvironment/Building/Lightning"]
+transform = Transform3D(-1, 6.24195e-08, -6.1209e-08, 0, 0.700149, 0.713996, 8.74228e-08, 0.713996, -0.700149, 59.1838, 5.72556, -1.38604)
+light_color = Color(0.627451, 0, 0.807843, 1)
+light_energy = 14.0
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 1.0
+distance_fade_shadow = 1.0
+spot_range = 13.0
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="NightclubLevelEnvironment/Building/Lightning"]
+transform = Transform3D(-1, 6.24195e-08, -6.1209e-08, 0, 0.700149, 0.713996, 8.74228e-08, 0.713996, -0.700149, 59.1838, 5.72556, 8.49223)
+light_color = Color(0.701961, 0, 0.635294, 1)
+light_energy = 14.0
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 1.0
+distance_fade_shadow = 1.0
+spot_range = 13.0
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="NightclubLevelEnvironment/Building/Lightning"]
+transform = Transform3D(-1, 6.24195e-08, -6.1209e-08, 0, 0.700149, 0.713996, 8.74228e-08, 0.713996, -0.700149, 59.1838, 5.72556, 16.9707)
+light_color = Color(0.752941, 0, 0.454902, 1)
+light_energy = 14.0
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 1.0
+distance_fade_shadow = 1.0
+spot_range = 13.0
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="NightclubLevelEnvironment/Building/Lightning"]
+transform = Transform3D(-1, 6.24195e-08, -6.1209e-08, 0, 0.700149, 0.713996, 8.74228e-08, 0.713996, -0.700149, 59.1838, 5.72556, 26.5893)
+light_color = Color(0.792157, 0, 0.121569, 1)
+light_energy = 14.0
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 1.0
+distance_fade_shadow = 1.0
+spot_range = 13.0
+
+[node name="Blinking light6" parent="NightclubLevelEnvironment/Building/Lightning" instance=ExtResource("4_uyoqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.8957, 4.05713, 40.6074)
+light_color = Color(0, 0.631373, 0.984314, 1)
+light_bake_mode = 1
+distance_fade_begin = 5.0
+distance_fade_shadow = 2.0
+distance_fade_length = 5.0
+omni_range = 7.0
+omni_shadow_mode = 0
+script = null
+
+[node name="Graffiti" type="Node" parent="NightclubLevelEnvironment/Building"]
+
+[node name="Graffiti" parent="NightclubLevelEnvironment/Building/Graffiti" instance=ExtResource("18_qrre0")]
+transform = Transform3D(2.5, 0, -0.000479817, 0, 2.5, 0, 0.000479817, 0, 2.5, -0.923996, 3.14683, -24.8829)
+
+[node name="Graffiti2" parent="NightclubLevelEnvironment/Building/Graffiti" instance=ExtResource("20_7wjvu")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 30.3093, 2.2993, -20.2135)
+
+[node name="Graffiti3" parent="NightclubLevelEnvironment/Building/Graffiti" instance=ExtResource("25_ygum5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 58.3775, 4.97939, -33.1809)
+
+[node name="Graffiti4" parent="NightclubLevelEnvironment/Building/Graffiti" instance=ExtResource("18_qrre0")]
+transform = Transform3D(4, 0, 3.97904e-13, 0, 4, 0, -3.97904e-13, 0, 4, 63.2649, 4.25667, -33.1756)
+
+[node name="Graffiti7" parent="NightclubLevelEnvironment/Building/Graffiti" instance=ExtResource("26_3ddlj")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 56.3232, 7.73178, -53.1845)
+
+[node name="Graffiti8" parent="NightclubLevelEnvironment/Building/Graffiti" instance=ExtResource("20_7wjvu")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 47.9465, 7.64512, -47.9492)
+
+[node name="Graffiti9" parent="NightclubLevelEnvironment/Building/Graffiti" instance=ExtResource("20_7wjvu")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 60.6018, 10.3603, -33.3581)
+
+[node name="Graffiti10" parent="NightclubLevelEnvironment/Building/Graffiti" instance=ExtResource("18_qrre0")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 58.8804, 10.4605, -33.3546)
+
+[node name="Graffiti11" parent="NightclubLevelEnvironment/Building/Graffiti" instance=ExtResource("18_qrre0")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 58.7012, 4.01126, 45.8836)
+texture = ExtResource("22_h4j3f")
+
+[node name="Graffiti12" parent="NightclubLevelEnvironment/Building/Graffiti" instance=ExtResource("18_qrre0")]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 28.659, 3.04834, -15.5388)
+texture = ExtResource("23_uuj0m")
+
+[node name="Graffiti13" parent="NightclubLevelEnvironment/Building/Graffiti" instance=ExtResource("18_qrre0")]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 26.1939, 3.04834, -15.5388)
+texture = ExtResource("23_uuj0m")
+
+[node name="Graffiti14" parent="NightclubLevelEnvironment/Building/Graffiti" instance=ExtResource("18_qrre0")]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 23.6584, 3.04834, -15.5388)
+texture = ExtResource("23_uuj0m")
+
+[node name="Graffiti15" parent="NightclubLevelEnvironment/Building/Graffiti" instance=ExtResource("18_qrre0")]
+transform = Transform3D(-4.1, 0, 6.19083e-07, 0, 4.1, 0, -6.19083e-07, 0, -4.1, 47.3237, 9.57825, -3.3096)
+texture = ExtResource("23_nx48g")
+
+[node name="Graffiti16" parent="NightclubLevelEnvironment/Building/Graffiti" instance=ExtResource("18_qrre0")]
+transform = Transform3D(-2.40413e-07, 0, -5.5, 0, 5.5, 0, 5.5, 0, -2.40413e-07, 68.3489, 10.8967, -17.8466)
+texture = ExtResource("24_mu40p")
+
+[node name="Sofas" type="Node" parent="NightclubLevelEnvironment/Building"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NightclubLevelEnvironment/Building/Sofas"]
+transform = Transform3D(0.0196847, -0.0073152, -3.19758e-10, 6.6477e-18, -9.17939e-10, 0.021, -0.0073152, -0.0196847, -8.60446e-10, -0.763165, -0.0900898, -23.3836)
+mesh = ExtResource("6_ce43l")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NightclubLevelEnvironment/Building/Sofas"]
+transform = Transform3D(-0.0141183, -0.0155458, -6.79529e-10, 2.03675e-17, -9.17939e-10, 0.021, -0.0155458, 0.0141183, 6.17132e-10, -3.43443, -0.0900898, -19.2786)
+mesh = ExtResource("6_ce43l")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="NightclubLevelEnvironment/Building/Sofas"]
+transform = Transform3D(-0.0181378, -0.010584, -4.62641e-10, 7.18662e-17, -9.17939e-10, 0.021, -0.010584, 0.0181378, 7.92827e-10, 41.064, -0.0900774, -5.7044)
+mesh = ExtResource("6_ce43l")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="NightclubLevelEnvironment/Building/Sofas"]
+transform = Transform3D(0.000852656, -0.0209827, -9.17182e-10, 6.64834e-17, -9.17939e-10, 0.021, -0.0209827, -0.000852656, -3.72707e-11, 39.9534, -0.0900774, -27.3867)
+mesh = ExtResource("6_ce43l")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="NightclubLevelEnvironment/Building/Sofas"]
+transform = Transform3D(0.0206527, -0.00380352, -1.66257e-10, 6.41538e-17, -9.17939e-10, 0.021, -0.00380352, -0.0206527, -9.02757e-10, 43.6134, -0.0900774, -31.3539)
+mesh = ExtResource("6_ce43l")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="NightclubLevelEnvironment/Building/Sofas"]
+transform = Transform3D(-0.0115726, 0.0175235, 7.65977e-10, 1.14277e-16, -9.17939e-10, 0.021, 0.0175235, 0.0115726, 5.05856e-10, 65.0241, -0.0900774, -5.7044)
+mesh = ExtResource("6_ce43l")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="NightclubLevelEnvironment/Building/Sofas"]
+transform = Transform3D(-0.0115726, 0.0175235, 7.65977e-10, 1.14277e-16, -9.17939e-10, 0.021, 0.0175235, 0.0115726, 5.05856e-10, 65.0241, -0.0900774, 43.6351)
+mesh = ExtResource("6_ce43l")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="NightclubLevelEnvironment/Building/Sofas"]
+transform = Transform3D(-0.012871, -0.0165932, -7.25314e-10, 0, -9.17937e-10, 0.021, -0.0165932, 0.012871, 5.62611e-10, 52.8592, -0.0900774, 43.6351)
+mesh = ExtResource("6_ce43l")
+skeleton = NodePath("")
+
+[node name="Furniture" type="Node" parent="NightclubLevelEnvironment/Building"]
+
+[node name="TrashCan2" parent="NightclubLevelEnvironment/Building/Furniture" instance=ExtResource("23_qm34m")]
+transform = Transform3D(0.913389, 0, -0.407087, 0, 1, 0, 0.407087, 0, 0.913389, 1.87903, 0.989501, -20.8306)
+surface_material_override/0 = ExtResource("24_hsoq4")
+
+[node name="TrashCan3" parent="NightclubLevelEnvironment/Building/Furniture" instance=ExtResource("23_qm34m")]
+transform = Transform3D(0.507764, 0, 0.861496, 0, 1, 0, -0.861496, 0, 0.507764, 48.4633, 0.989501, -33.8325)
+surface_material_override/0 = ExtResource("24_hsoq4")
+
+[node name="TrashCan4" parent="NightclubLevelEnvironment/Building/Furniture" instance=ExtResource("23_qm34m")]
+transform = Transform3D(-0.393691, 0.779506, 0.487213, 0.772346, -0.00692063, 0.635164, 0.498487, 0.626356, -0.599324, 53.4324, 0.482552, 40.5116)
+surface_material_override/0 = ExtResource("24_hsoq4")
+
+[node name="TrashCan5" parent="NightclubLevelEnvironment/Building/Furniture" instance=ExtResource("23_qm34m")]
+transform = Transform3D(0.926772, 0, -0.375626, 0, 1, 0, 0.375626, 0, 0.926771, 62.0408, 0.482552, 44.7133)
+surface_material_override/0 = ExtResource("24_hsoq4")
+
+[node name="Chair_01" parent="NightclubLevelEnvironment/Building/Furniture" instance=ExtResource("23_85j0u")]
+transform = Transform3D(-1.18574, 0, -5.88167, 0, 6, 0, 5.88167, 0, -1.18574, 61.7051, -1.19209e-07, -18.2442)
+
+[node name="Chair_06" parent="NightclubLevelEnvironment/Building/Furniture" instance=ExtResource("23_85j0u")]
+transform = Transform3D(1.09794, 0, -5.89869, 0, 6, 0, 5.89869, 0, 1.09794, 56.9028, 9.88694, -34.0257)
+
+[node name="Chair_04" parent="NightclubLevelEnvironment/Building/Furniture" instance=ExtResource("23_85j0u")]
+transform = Transform3D(5.8287, 0, 1.42347, 0, 6, 0, -1.42347, 0, 5.8287, 60.8556, -1.19209e-07, -15.2073)
+
+[node name="Chair_05" parent="NightclubLevelEnvironment/Building/Furniture" instance=ExtResource("23_85j0u")]
+transform = Transform3D(-3.0193, 0, -5.18496, 0, 6, 0, 5.18496, 0, -3.0193, 61.7051, -1.19209e-07, -10.8913)
+
+[node name="Chair_02" parent="NightclubLevelEnvironment/Building/Furniture" instance=ExtResource("23_85j0u")]
+transform = Transform3D(-5.98473, 0, 0.427731, 0, 6, 0, -0.427731, 0, -5.98473, 60.8099, -1.19209e-07, -22.8202)
+
+[node name="Chair_03" parent="NightclubLevelEnvironment/Building/Furniture" instance=ExtResource("23_85j0u")]
+transform = Transform3D(-2.75745, 1.92613, -4.96855, -5.1675, 0.399629, 3.02279, 1.30131, 5.66836, 1.47522, 61.4476, 0.472862, -21.7794)
+
+[node name="Triggers" type="Node" parent="NightclubLevelEnvironment/Building"]
+
+[node name="Doors" parent="NightclubLevelEnvironment/Building/Triggers" node_paths=PackedStringArray("callback") instance=ExtResource("8_mogom")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 38.3191, 2.95449, -18.2144)
+callback = NodePath("DoorsCallback")
+
+[node name="DoorsCallback" type="Node3D" parent="NightclubLevelEnvironment/Building/Triggers/Doors"]
+script = ExtResource("9_81wuy")
+
+[node name="Doors2" parent="NightclubLevelEnvironment/Building/Triggers" instance=ExtResource("8_mogom")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 59.1035, 2.95449, -3.17043)
+callback = NodePath("")
+
+[node name="BossMusicTrigger" type="Area3D" parent="NightclubLevelEnvironment/Building/Triggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.034, 1.52857, 28.7441)
+script = ExtResource("35_1211m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NightclubLevelEnvironment/Building/Triggers/BossMusicTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.40339)
+shape = SubResource("BoxShape3D_8ywbw")
+
+[node name="Money" type="Node" parent="NightclubLevelEnvironment/Building"]
+
+[node name="Sketchfab_Scene" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(0.0809888, 0, -0.0586584, 0, 0.1, 0, 0.0586584, 0, 0.0809888, 60.233, 1.58054, 44.842)
+
+[node name="Sketchfab_Scene2" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(0.0137531, 0, 0.0990497, 0, 0.1, 0, -0.0990497, 0, 0.0137531, 59.6692, 1.58054, 44.842)
+
+[node name="Sketchfab_Scene3" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(0.0999059, 0, 0.00433754, 0, 0.1, 0, -0.00433754, 0, 0.0999059, 59.1041, 1.58054, 44.5921)
+
+[node name="Sketchfab_Scene4" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(0.0306941, 0, 0.0951729, 0, 0.1, 0, -0.0951729, 0, 0.0306941, 58.6628, 1.58054, 45.1253)
+
+[node name="Sketchfab_Scene5" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(-0.0522424, 0, 0.0852686, 0, 0.1, 0, -0.0852686, 0, -0.0522424, 58.6628, 1.58054, 44.6993)
+
+[node name="Sketchfab_Scene6" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(-0.0999954, 0, -0.000963416, 0, 0.1, 0, 0.000963416, 0, -0.0999954, 58.08, 1.58054, 44.955)
+
+[node name="Sketchfab_Scene7" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(-0.084529, 0, -0.0534308, 0, 0.1, 0, 0.0534308, 0, -0.084529, 59.2978, 1.58054, 45.2986)
+
+[node name="Sketchfab_Scene8" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(0.0723811, 0, -0.0689999, 0, 0.1, 0, 0.0689999, 0, 0.0723811, 59.5306, 1.72563, 44.976)
+
+[node name="Sketchfab_Scene10" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(0.0803857, 0, 0.0594823, 0, 0.1, 0, -0.0594823, 0, 0.0803857, 60.0343, 1.72563, 45.0386)
+
+[node name="Sketchfab_Scene11" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(0.0231765, 0, 0.0972772, 0, 0.1, 0, -0.0972772, 0, 0.0231765, 59.6911, 1.89799, 44.9467)
+
+[node name="Sketchfab_Scene12" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(-0.043892, 0, 0.0898526, 0, 0.1, 0, -0.0898526, 0, -0.043892, 59.1087, 1.86333, 44.9467)
+
+[node name="Sketchfab_Scene13" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(0.0912206, 0, 0.0409732, 0, 0.1, 0, -0.0409732, 0, 0.0912206, 59.1087, 2.00961, 44.9467)
+
+[node name="Sketchfab_Scene14" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(-0.0293756, 0, 0.095588, 0, 0.1, 0, -0.095588, 0, -0.0293756, 59.4896, 2.04538, 44.9467)
+
+[node name="Sketchfab_Scene9" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(0.0913098, 0, -0.0407741, 0, 0.1, 0, 0.0407741, 0, 0.0913098, 58.9971, 1.72563, 44.8219)
+
+[node name="Sketchfab_Scene17" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(0.0428888, 0, 0.0903358, 0, 0.0999999, 0, -0.0903358, 0, 0.0428888, 57.1072, 1.60106, 44.1496)
+
+[node name="Sketchfab_Scene15" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(0.0913098, 0, -0.0407741, 0, 0.1, 0, 0.0407741, 0, 0.0913098, 59.2804, 0.0424893, 43.2531)
+
+[node name="Sketchfab_Scene16" parent="NightclubLevelEnvironment/Building/Money" instance=ExtResource("28_6iatb")]
+transform = Transform3D(0.0714741, 0, 0.0699389, 0, 0.0999999, 0, -0.0699389, 0, 0.0714741, 60.4665, 0.0424893, 42.763)
+
+[node name="CSGContainers" type="Node" parent="NightclubLevelEnvironment/Building"]
+
+[node name="Stairway" type="CSGCombiner3D" parent="NightclubLevelEnvironment/Building/CSGContainers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.4365, 0.23202, -36.8117)
+visibility_range_end = 15.0
+calculate_tangents = false
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0.000150204, -0.000480652)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0.50015, -0.750481)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 1.00015, -1.50048)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 1.50015, -2.25048)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 2.00015, -3.00048)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D6" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 2.50015, -3.75048)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D7" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 3.00015, -4.50048)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D8" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 3.50015, -5.25048)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D9" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 4.00015, -6.00047)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="Stairway2" type="CSGCombiner3D" parent="NightclubLevelEnvironment/Building/CSGContainers"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 58.388, 5.137, -42.735)
+visibility_range_end = 15.0
+calculate_tangents = false
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway2"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0, -0.00018692)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway2"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0.5, -0.750187)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway2"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 1, -1.50019)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway2"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 1.5, -2.25018)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway2"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 2, -3.00018)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D6" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway2"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 2.5, -3.75018)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D7" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway2"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 3, -4.50018)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D8" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway2"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 3.5, -5.25018)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="CSGMesh3D9" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway2"]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 4, -6.00018)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_qrtn0")
+material = SubResource("StandardMaterial3D_4cj5c")
+
+[node name="Area" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/Stairway2"]
+transform = Transform3D(0.999998, 0, -7.10543e-14, 0, 1, 0, 7.10543e-14, 0, 0.999998, 0, 4.50708, -7.88227)
+calculate_tangents = false
+mesh = SubResource("BoxMesh_4uve2")
+material = SubResource("StandardMaterial3D_peu5n")
+
+[node name="OutsideWalls" type="CSGCombiner3D" parent="NightclubLevelEnvironment/Building/CSGContainers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -83.814)
+calculate_tangents = false
+
+[node name="Corridor01" type="CSGBox3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.400533, -7.04551, 80.003)
+calculate_tangents = false
+flip_faces = true
+size = Vector3(4, 6, 40)
+material = ExtResource("14_20nfv")
+
+[node name="Room01" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57837, -7.04551, 62.9209)
+calculate_tangents = false
+flip_faces = true
+mesh = SubResource("BoxMesh_ag0id")
+material = ExtResource("14_20nfv")
+
+[node name="Corridor02" type="CSGBox3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.408, -7.04551, 65.5996)
+calculate_tangents = false
+flip_faces = true
+size = Vector3(4, 6, 40)
+material = ExtResource("14_20nfv")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/Corridor02"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.88832, -1.12934, -8.05511)
+flip_faces = true
+mesh = SubResource("BoxMesh_1q0eu")
+material = ExtResource("14_20nfv")
+
+[node name="DanceArea01" type="CSGBox3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 53.3886, -0.00617695, 65.5996)
+calculate_tangents = false
+flip_faces = true
+size = Vector3(30, 40, 30)
+material = ExtResource("14_syk6k")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/DanceArea01"]
+transform = Transform3D(14.25, 0, 0, 0, 2, 0, 0, 0, 2, -3.8147e-06, -9.01573, -10.1826)
+operation = 2
+calculate_tangents = false
+flip_faces = true
+mesh = SubResource("BoxMesh_8db33")
+material = SubResource("StandardMaterial3D_ypc8y")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/DanceArea01/CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0311736, 0.475655)
+operation = 2
+flip_faces = true
+mesh = SubResource("BoxMesh_gswwl")
+material = ExtResource("30_tq0tk")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/DanceArea01/CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0311736, -0.452297)
+operation = 2
+flip_faces = true
+mesh = SubResource("BoxMesh_gswwl")
+material = ExtResource("30_tq0tk")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/DanceArea01"]
+transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 0.25, -5.55343, -7.47409, -14.9208)
+operation = 2
+calculate_tangents = false
+flip_faces = true
+mesh = SubResource("BoxMesh_8db33")
+material = SubResource("StandardMaterial3D_g44re")
+
+[node name="CSGMesh3D10" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/DanceArea01"]
+transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 0.25, -1.87469, -7.47409, -14.9208)
+operation = 2
+calculate_tangents = false
+flip_faces = true
+mesh = SubResource("BoxMesh_8db33")
+material = SubResource("StandardMaterial3D_g44re")
+
+[node name="CSGMesh3D11" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/DanceArea01"]
+transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 0.25, 1.90705, -7.47409, -14.9208)
+operation = 2
+calculate_tangents = false
+flip_faces = true
+mesh = SubResource("BoxMesh_8db33")
+material = SubResource("StandardMaterial3D_g44re")
+
+[node name="CSGMesh3D9" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/DanceArea01"]
+transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 0.25, 5.52277, -7.47409, -14.9208)
+operation = 2
+calculate_tangents = false
+flip_faces = true
+mesh = SubResource("BoxMesh_8db33")
+material = SubResource("StandardMaterial3D_g44re")
+
+[node name="CSGMesh3D8" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/DanceArea01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.27662, -9.6834, 9.40321)
+operation = 2
+calculate_tangents = false
+flip_faces = true
+mesh = SubResource("CylinderMesh_3os4k")
+material = SubResource("StandardMaterial3D_df5i2")
+
+[node name="Pillar01" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/DanceArea01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.34225, 0, -1.74921)
+operation = 2
+calculate_tangents = false
+flip_faces = true
+mesh = SubResource("BoxMesh_7mk4c")
+material = ExtResource("14_syk6k")
+
+[node name="Pillar02" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/DanceArea01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8716, 0, -1.74921)
+operation = 2
+calculate_tangents = false
+flip_faces = true
+mesh = SubResource("BoxMesh_7mk4c")
+material = ExtResource("14_syk6k")
+
+[node name="Pillar03" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/DanceArea01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.83785, 0, 9.35379)
+operation = 2
+calculate_tangents = false
+flip_faces = true
+mesh = SubResource("BoxMesh_7mk4c")
+material = ExtResource("14_syk6k")
+
+[node name="Pillar04" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/DanceArea01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.0164, 0, 9.35379)
+operation = 2
+calculate_tangents = false
+flip_faces = true
+mesh = SubResource("BoxMesh_7mk4c")
+material = ExtResource("14_syk6k")
+
+[node name="Corridor03" type="CSGBox3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.4365, -5.01098, 40.9353)
+flip_faces = true
+size = Vector3(7, 10, 20.64)
+material = ExtResource("14_syk6k")
+
+[node name="Corridor04" type="CSGBox3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 58.388, -0.106, 41.018)
+flip_faces = true
+size = Vector3(7, 10, 20.825)
+material = ExtResource("14_syk6k")
+
+[node name="Corridor05" type="CSGBox3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.1485, -7.04551, 99.998)
+calculate_tangents = false
+flip_faces = true
+size = Vector3(4, 6, 40)
+material = ExtResource("14_20nfv")
+
+[node name="Room02" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.9343, -5.02626, 124.734)
+calculate_tangents = false
+flip_faces = true
+mesh = SubResource("BoxMesh_gh736")
+material = ExtResource("14_20nfv")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/Room02"]
+transform = Transform3D(-4.99987, 0, 0.0145561, 0, 1.6, 0, -0.0363903, 0, -1.99995, -1.24616, -4.17798, 4.05)
+operation = 2
+calculate_tangents = false
+flip_faces = true
+mesh = SubResource("BoxMesh_8db33")
+material = SubResource("StandardMaterial3D_ypc8y")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/Room02/CSGMesh3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0311736, 0.475655)
+operation = 2
+flip_faces = true
+mesh = SubResource("BoxMesh_gswwl")
+material = ExtResource("30_tq0tk")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/Room02/CSGMesh3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0311736, -0.452297)
+operation = 2
+flip_faces = true
+mesh = SubResource("BoxMesh_gswwl")
+material = ExtResource("30_tq0tk")
+
+[node name="CSGMesh3D8" type="CSGMesh3D" parent="NightclubLevelEnvironment/Building/CSGContainers/OutsideWalls/Room02"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.36587, -4.67721, 0.528996)
+operation = 2
+calculate_tangents = false
+flip_faces = true
+mesh = SubResource("CylinderMesh_3os4k")
+material = SubResource("StandardMaterial3D_df5i2")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="NightclubLevelEnvironment/Building"]
+transform = Transform3D(0.0148348, 0, -0.99989, 0, 1, 0, 0.99989, 0, 0.0148348, 34.3627, 1.32779, -18.6623)
+occluder = SubResource("QuadOccluder3D_iaeko")
+
+[node name="OccluderInstance3D2" type="OccluderInstance3D" parent="NightclubLevelEnvironment/Building"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 51.5623, 1.32779, 13.6068)
+occluder = SubResource("QuadOccluder3D_iaeko")
+
+[node name="Bonuses" type="Node" parent="NightclubLevelEnvironment"]
+
+[node name="Bonus" parent="NightclubLevelEnvironment/Bonuses" instance=ExtResource("71_6umqy")]
+transform = Transform3D(0.90147, 0, 0.432841, -0.170577, 0.919073, 0.355257, -0.397813, -0.394086, 0.828517, -1.13786, 1.64898, -23.4269)
+
+[node name="Bonus2" parent="NightclubLevelEnvironment/Bonuses" instance=ExtResource("71_6umqy")]
+transform = Transform3D(-0.277411, 0.145641, -0.389656, 0.0779669, 0.478258, 0.12325, 0.408613, 0.00762106, -0.288058, 30.1412, 0.36483, -15.8517)
+
+[node name="Bonus3" parent="NightclubLevelEnvironment/Bonuses" instance=ExtResource("71_6umqy")]
+transform = Transform3D(0.116972, -0.132541, 0.984251, -0.0395306, 0.989648, 0.137966, -0.992348, -0.0550462, 0.110521, 40.623, 1.68418, -28.761)
+
+[node name="Bonus4" parent="NightclubLevelEnvironment/Bonuses" instance=ExtResource("71_6umqy")]
+transform = Transform3D(0.101076, 0.12563, -0.473287, 0.009005, 0.482706, 0.130053, 0.489594, -0.0348144, 0.0953172, 60.9602, 1.82719, -22.8373)
+
+[node name="Bonus5" parent="NightclubLevelEnvironment/Bonuses" instance=ExtResource("71_6umqy")]
+transform = Transform3D(-0.320089, -0.0760598, 0.376508, 0.0544829, 0.476154, 0.142508, -0.38023, 0.132257, -0.296535, 56.831, 11.6476, -33.9363)
+
+[node name="Bonus6" parent="NightclubLevelEnvironment/Bonuses" instance=ExtResource("71_6umqy")]
+transform = Transform3D(-0.395169, 0.0438491, -0.303181, -0.0852884, 0.459537, 0.177629, 0.294223, 0.192102, -0.35571, 61.0244, 2.01329, 45.7158)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.211, 2, 23.497)
+curve = SubResource("Curve3D_e2cu4")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.999986, 0, 0, 0, 0.999997, 0, 0, 0, 0.999997, 0, 0, -8.585)
+rotation_mode = 1
+loop = false
+tilt_enabled = false
+
+[node name="Player" parent="Path3D/PathFollow3D" instance=ExtResource("23_hbanu")]
+current = true
+far = 100.0
+
+[node name="CRT_Effect" parent="." instance=ExtResource("24_bs6bb")]
+
+[connection signal="finished" from="Audio/ScreamsSounds" to="Audio/ScreamsSounds" method="_on_finished"]
+[connection signal="body_entered" from="NightclubLevelEnvironment/Building/Triggers/BossMusicTrigger" to="NightclubLevelEnvironment/Building/Triggers/BossMusicTrigger" method="_on_player_entered"]

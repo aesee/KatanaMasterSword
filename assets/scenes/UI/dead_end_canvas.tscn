@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=3 uid="uid://5mxfcb6w8305"]
+
+[ext_resource type="Script" path="res://scripts/dead_end_canvas.gd" id="1_hmpqs"]
+[ext_resource type="Shader" path="res://shaders/melt_screen.gdshader" id="2_8wpio"]
+[ext_resource type="PackedScene" uid="uid://bcp73mvvyklsa" path="res://assets/scenes/UI/main_menu.tscn" id="2_ghtn8"]
+[ext_resource type="Shader" path="res://shaders/chromatic_distortion.gdshader" id="3_2vkhn"]
+[ext_resource type="Script" path="res://scripts/UI/melting_screen.gd" id="3_rcae2"]
+[ext_resource type="Theme" uid="uid://bmmgb58vvch3j" path="res://assets/ui_themes/default.tres" id="5_nwg4p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xiy5j"]
+shader = ExtResource("2_8wpio")
+shader_parameter/timer = 0.0
+shader_parameter/y_offsets = null
+shader_parameter/melting = false
+
+[sub_resource type="SystemFont" id="SystemFont_g7rsq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eoaxv"]
+font = SubResource("SystemFont_g7rsq")
+font_size = 100
+font_color = Color(0.843137, 0, 0, 1)
+outline_size = 2
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsggj"]
+shader = ExtResource("3_2vkhn")
+shader_parameter/chaos = 3.0
+shader_parameter/radius = 1.0
+shader_parameter/attenuation = 2.0
+
+[node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("melting_screen")]
+process_mode = 2
+script = ExtResource("1_hmpqs")
+melting_screen = NodePath("MeltingScreenEffect")
+main_menu = ExtResource("2_ghtn8")
+
+[node name="BlackBackground" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MeltingScreenEffect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_xiy5j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("3_rcae2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -198.0
+offset_right = 118.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_eoaxv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("5_nwg4p")
+text = "RESTART"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("5_nwg4p")
+text = "BACK TO MAIN MENU"
+
+[node name="ShaderEffect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wsggj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="button_down" from="Control/Panel/VBoxContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Control/Panel/VBoxContainer/Button2" to="." method="_on_back_to_main_menu_up"]

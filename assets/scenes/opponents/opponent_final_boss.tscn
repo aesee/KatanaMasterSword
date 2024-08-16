@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbehow0n6x7qo"]
+
+[ext_resource type="PackedScene" uid="uid://b8byxx3aldo5" path="res://assets/scenes/opponents/base_opponent.tscn" id="1_ejqgx"]
+[ext_resource type="PackedScene" uid="uid://b8d7d28v6hwr7" path="res://assets/scenes/opponents/cursor_01.tscn" id="2_raqc6"]
+[ext_resource type="PackedScene" uid="uid://b2wbfermladxf" path="res://assets/scenes/opponents/cursor_02.tscn" id="3_tyojb"]
+[ext_resource type="PackedScene" uid="uid://col678m524i8x" path="res://assets/characters/demon_head_01/demon_head_01.tscn" id="3_uir3t"]
+[ext_resource type="PackedScene" uid="uid://bjmjv1h50w7jp" path="res://assets/characters/demon_body_01/demon_body_01.tscn" id="4_rt2n7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rshqf"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Opponent" node_paths=PackedStringArray("cursors") instance=ExtResource("1_ejqgx")]
+cursors = [NodePath("Cursor"), NodePath("Cursor2")]
+initialHealth = 350.0
+
+[node name="Cursor" parent="." index="1" node_paths=PackedStringArray("characterCollision") instance=ExtResource("2_raqc6")]
+transform = Transform3D(-0.0313936, 0.0197709, 0.0928631, 0.0809509, 0.0566825, 0.0152986, -0.0496124, 0.0799763, -0.0337994, -0.345417, 0, 1)
+characterCollision = NodePath("../CollisionShape3D")
+
+[node name="Cursor2" parent="." index="2" node_paths=PackedStringArray("characterCollision") instance=ExtResource("3_tyojb")]
+transform = Transform3D(-0.0016349, -0.0238712, 0.0970953, 0.0809509, 0.0566825, 0.0152986, -0.058688, 0.0788496, 0.0183973, 0.304887, 0, 1)
+characterCollision = NodePath("../CollisionShape3D")
+
+[node name="demon_head_01" parent="." index="3" instance=ExtResource("3_uir3t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.533816, 0)
+
+[node name="demon_body_01" parent="." index="4" instance=ExtResource("4_rt2n7")]
+transform = Transform3D(1.82709, 0, 0.813473, 0, 2, 0, -0.813473, 0, 1.82709, 0, -0.650239, -0.0951198)
+
+[node name="Sprite3D" parent="." index="6"]
+texture = SubResource("ViewportTexture_rshqf")

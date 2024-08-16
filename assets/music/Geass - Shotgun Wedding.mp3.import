@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buvhrcw4jm3tq"
+path="res://.godot/imported/Geass - Shotgun Wedding.mp3-78382f1d431809d5d2d48b4e8024e075.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Geass - Shotgun Wedding.mp3"
+dest_files=["res://.godot/imported/Geass - Shotgun Wedding.mp3-78382f1d431809d5d2d48b4e8024e075.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

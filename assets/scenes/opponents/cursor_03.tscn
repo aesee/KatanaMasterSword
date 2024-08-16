@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca1dflyhef433"]
+
+[ext_resource type="Script" path="res://scripts/cursor.gd" id="1_aa3er"]
+[ext_resource type="PackedScene" uid="uid://b3rfs7v0p4et" path="res://assets/blades/katana_02/katana_02.glb" id="2_veubl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uojtl"]
+size = Vector3(1.04, 11.68, 0.675)
+
+[node name="Cursor" type="CharacterBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 1)
+collision_mask = 2
+input_capture_on_drag = true
+motion_mode = 1
+script = ExtResource("1_aa3er")
+type = 1
+
+[node name="katana_02" parent="." instance=ExtResource("2_veubl")]
+transform = Transform3D(-9.98135, -0.610485, 8.74228e-07, -0.610485, 9.98135, 0, -8.72597e-07, -5.33703e-08, -10, -0.292, -0.025, -0.093)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, -5.96046e-08, 2.98023e-08, 2.98023e-08, 1, 2.98023e-08, 1.3411e-07, 0, 1, -0.220612, 0.133564, -0.0464292)
+shape = SubResource("BoxShape3D_uojtl")

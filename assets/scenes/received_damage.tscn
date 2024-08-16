@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cww7at3m0udow"]
+
+[ext_resource type="Script" path="res://scripts/received_damage.gd" id="1_mlwip"]
+
+[sub_resource type="Curve" id="Curve_6xfgq"]
+_data = [Vector2(0, 0), 0.0, 0.535022, 0, 1, Vector2(1, 0.535022), 0.535022, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_kmdlb"]
+offsets = PackedFloat32Array(0, 0.987234, 1)
+colors = PackedColorArray(0.739788, 1.25862e-05, 6.44952e-06, 1, 0.654902, 0, 0, 1, 0.768627, 0, 0, 0)
+
+[node name="ReceivedDamage" type="Line2D"]
+width = 40.0
+width_curve = SubResource("Curve_6xfgq")
+gradient = SubResource("Gradient_kmdlb")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("1_mlwip")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://wt57dflv753h"]
+
+[ext_resource type="PackedScene" uid="uid://b8byxx3aldo5" path="res://assets/scenes/opponents/base_opponent.tscn" id="1_c07pr"]
+[ext_resource type="PackedScene" uid="uid://bjmjv1h50w7jp" path="res://assets/characters/demon_body_01/demon_body_01.tscn" id="2_bfa8i"]
+[ext_resource type="PackedScene" uid="uid://c4ehao0et5jlr" path="res://assets/characters/demon_head_04/demon_head_04.tscn" id="3_51lwu"]
+[ext_resource type="PackedScene" uid="uid://b8d7d28v6hwr7" path="res://assets/scenes/opponents/cursor_01.tscn" id="4_sbksj"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jx3m4"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Opponent" node_paths=PackedStringArray("cursors") instance=ExtResource("1_c07pr")]
+cursors = [NodePath("Cursor")]
+initialHealth = 225.0
+
+[node name="Sprite3D" parent="." index="2"]
+texture = SubResource("ViewportTexture_jx3m4")
+
+[node name="demon_body_01" parent="." index="3" instance=ExtResource("2_bfa8i")]
+transform = Transform3D(0.358394, 0, 1.49955, 0, 2.2, 0, -1.24962, 0, 0.430073, 0.0311263, -0.792028, 0)
+
+[node name="demon_head_04" parent="." index="4" instance=ExtResource("3_51lwu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.707531, 0)
+
+[node name="Cursor" parent="." index="5" node_paths=PackedStringArray("characterCollision") instance=ExtResource("4_sbksj")]
+characterCollision = NodePath("../CollisionShape3D")

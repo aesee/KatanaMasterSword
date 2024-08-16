@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://555os30b1gu7"]
+
+[ext_resource type="Script" path="res://scripts/environment/doors_opening.gd" id="1_4negu"]
+[ext_resource type="Texture2D" uid="uid://l2k32a0eh2uq" path="res://assets/textures/door_01.jpg" id="2_hv3gr"]
+
+[sub_resource type="Animation" id="Animation_cuv1d"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HingeJoint3D:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HingeJoint3D2:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_q452t"]
+resource_name = "opening"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HingeJoint3D:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.5708, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HingeJoint3D2:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -1.5708, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1t28o"]
+_data = {
+"RESET": SubResource("Animation_cuv1d"),
+"opening": SubResource("Animation_q452t")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lff2a"]
+albedo_color = Color(0.313726, 0.262745, 0.133333, 1)
+albedo_texture = ExtResource("2_hv3gr")
+uv1_scale = Vector3(0.16, 0.16, 0.16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_evksc"]
+size = Vector3(0.2, 6, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rqeye"]
+size = Vector3(2, 5, 4)
+
+[node name="Doors" type="Node3D"]
+script = ExtResource("1_4negu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1t28o")
+}
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="DoorMesh" type="MeshInstance3D" parent="HingeJoint3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+material_override = SubResource("StandardMaterial3D_lff2a")
+ignore_occlusion_culling = true
+mesh = SubResource("BoxMesh_evksc")
+
+[node name="HingeJoint3D2" type="HingeJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="DoorMesh" type="MeshInstance3D" parent="HingeJoint3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+material_override = SubResource("StandardMaterial3D_lff2a")
+ignore_occlusion_culling = true
+mesh = SubResource("BoxMesh_evksc")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99404, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_rqeye")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

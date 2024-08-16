@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsege08algueq"]
+
+[ext_resource type="Material" uid="uid://cgfq8xsnup2o6" path="res://assets/environment/trash_can/trash_can.tres" id="1_2axqa"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_iikex"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x5bqu"]
+size = Vector3(0.4, 0.2, 1.235)
+
+[node name="TrashCan" type="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.2991, 0.996384, -32.2247)
+material_override = ExtResource("1_2axqa")
+gi_mode = 0
+calculate_tangents = false
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+gi_mode = 0
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2475, 0)
+gi_mode = 0
+operation = 2
+mesh = SubResource("SphereMesh_iikex")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.638011, 0.0154419)
+gi_mode = 0
+operation = 2
+mesh = SubResource("BoxMesh_x5bqu")

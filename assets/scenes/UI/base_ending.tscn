@@ -1,0 +1,99 @@
+[gd_scene load_steps=9 format=3 uid="uid://drjvgqf27unpc"]
+
+[ext_resource type="Script" path="res://scripts/UI/base_ending.gd" id="1_mym8q"]
+[ext_resource type="PackedScene" uid="uid://bcp73mvvyklsa" path="res://assets/scenes/UI/main_menu.tscn" id="2_cghus"]
+[ext_resource type="Shader" path="res://shaders/melt_screen.gdshader" id="3_6dtn5"]
+[ext_resource type="Script" path="res://scripts/UI/melting_screen.gd" id="4_c57qk"]
+[ext_resource type="Shader" path="res://shaders/chromatic_distortion.gdshader" id="6_i1wxp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xiy5j"]
+shader = ExtResource("3_6dtn5")
+shader_parameter/timer = 0.0
+shader_parameter/y_offsets = null
+shader_parameter/melting = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_mhgom"]
+font_size = 60
+outline_size = 3
+outline_color = Color(0.376471, 0.376471, 0.376471, 1)
+shadow_size = 3
+shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsggj"]
+shader = ExtResource("6_i1wxp")
+shader_parameter/chaos = 3.0
+shader_parameter/radius = 1.0
+shader_parameter/attenuation = 2.0
+
+[node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("melting_screen", "text")]
+script = ExtResource("1_mym8q")
+melting_screen = NodePath("MeltingScreenEffect")
+main_menu = ExtResource("2_cghus")
+text = NodePath("Control/Panel/VBoxContainer/Label")
+
+[node name="BlackBackground" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MeltingScreenEffect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_xiy5j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("4_c57qk")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -198.0
+offset_right = 118.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "You will find her
+next time"
+label_settings = SubResource("LabelSettings_mhgom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShaderEffect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wsggj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

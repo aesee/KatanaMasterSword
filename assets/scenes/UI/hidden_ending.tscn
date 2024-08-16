@@ -1,0 +1,219 @@
+[gd_scene load_steps=9 format=3 uid="uid://br6lstbpxcdix"]
+
+[ext_resource type="Script" path="res://scripts/UI/hidden_ending.gd" id="1_n1p7f"]
+[ext_resource type="PackedScene" uid="uid://bcp73mvvyklsa" path="res://assets/scenes/UI/main_menu.tscn" id="2_r03ej"]
+[ext_resource type="Shader" path="res://shaders/melt_screen.gdshader" id="3_ji3pu"]
+[ext_resource type="Script" path="res://scripts/UI/melting_screen.gd" id="4_oq22d"]
+[ext_resource type="Shader" path="res://shaders/chromatic_distortion.gdshader" id="5_er1ng"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xiy5j"]
+shader = ExtResource("3_ji3pu")
+shader_parameter/timer = 0.0
+shader_parameter/y_offsets = null
+shader_parameter/melting = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_mhgom"]
+font_size = 60
+outline_size = 3
+outline_color = Color(0.376471, 0.376471, 0.376471, 1)
+shadow_size = 3
+shadow_color = Color(0.317647, 0.317647, 0.317647, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsggj"]
+shader = ExtResource("5_er1ng")
+shader_parameter/chaos = 3.0
+shader_parameter/radius = 1.0
+shader_parameter/attenuation = 2.0
+
+[node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("melting_screen", "texts")]
+script = ExtResource("1_n1p7f")
+melting_screen = NodePath("MeltingScreenEffect")
+main_menu = ExtResource("2_r03ej")
+texts = [NodePath("Control/Panel/VBoxContainer/Label1"), NodePath("Control/Panel/VBoxContainer/Label2"), NodePath("Control/Panel/VBoxContainer/Label3"), NodePath("Control/Panel/VBoxContainer/Label4"), NodePath("Control/Panel/VBoxContainer/Label5"), NodePath("Control/Panel/VBoxContainer/Label6"), NodePath("Control/Panel/VBoxContainer/Label7"), NodePath("Control/Panel/VBoxContainer/Label8"), NodePath("Control/Panel/VBoxContainer/Label9"), NodePath("Control/Panel/VBoxContainer/Label10"), NodePath("Control/Panel/VBoxContainer/Label11"), NodePath("Control/Panel/VBoxContainer/Label12"), NodePath("Control/Panel/VBoxContainer/Label13")]
+
+[node name="BlackBackground" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MeltingScreenEffect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_xiy5j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("4_oq22d")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -198.0
+offset_right = 118.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label1" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Hello, 
+I am developer 
+of the game"
+label_settings = SubResource("LabelSettings_mhgom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "It was hard for me 
+to finish the game
+and I appreciate you 
+that you made it so far"
+label_settings = SubResource("LabelSettings_mhgom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "I only wanted to 
+make something quick, 
+something finished 
+and well polished"
+label_settings = SubResource("LabelSettings_mhgom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "I wanted to show 
+what music I made 
+and mix it will cool
+neon lights"
+label_settings = SubResource("LabelSettings_mhgom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Everything messed up"
+label_settings = SubResource("LabelSettings_mhgom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "I had a lot of 
+technical problems, 
+nothing was working 
+as I expected"
+label_settings = SubResource("LabelSettings_mhgom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "And there were
+lot of critics 
+from my friends, 
+from my family"
+label_settings = SubResource("LabelSettings_mhgom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "I almost gave up"
+label_settings = SubResource("LabelSettings_mhgom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "This game wasn't 
+supposed to be 
+ever finished"
+label_settings = SubResource("LabelSettings_mhgom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label10" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "If you ask me about
+one thing I learned 
+while working on it"
+label_settings = SubResource("LabelSettings_mhgom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label11" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "They don't care
+if you finish it
+or not"
+label_settings = SubResource("LabelSettings_mhgom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label12" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "But you have to
+finish it to move
+forward"
+label_settings = SubResource("LabelSettings_mhgom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label13" type="Label" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Thank you for playing"
+label_settings = SubResource("LabelSettings_mhgom")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShaderEffect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wsggj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://vhw46nqnfal3"]
+
+[ext_resource type="Shader" path="res://shaders/opponent_default.gdshader" id="1_0f5dc"]
+[ext_resource type="FastNoiseLite" uid="uid://lk8lv2qrpd1s" path="res://assets/textures/fast_noise_simplex.tres" id="2_usa0f"]
+[ext_resource type="Texture2D" uid="uid://bm5d3h86jbbnl" path="res://assets/characters/demon_head_01/demon_head_01_tex_base_color.jpg" id="3_qxu28"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uaqlj"]
+seamless = true
+noise = ExtResource("2_usa0f")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0f5dc")
+shader_parameter/albedo = Color(0.580392, 0.501961, 0.843137, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/emission_amount = 10.0
+shader_parameter/burn_size = 0.0
+shader_parameter/dissolve_amount = 0.0
+shader_parameter/texture_albedo = ExtResource("3_qxu28")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_uaqlj")

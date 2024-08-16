@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://it6q4kfyw5et"]
+
+[ext_resource type="Texture2D" uid="uid://cnyha4mneex15" path="res://assets/textures/graffiti/pinpng.com-graffiti-png-551613.png" id="1_n5udq"]
+
+[node name="Graffiti" type="Sprite3D"]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -1.99913, -0.655187, -11.9013)
+gi_mode = 0
+shaded = true
+double_sided = false
+texture = ExtResource("1_n5udq")
